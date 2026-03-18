@@ -3,10 +3,9 @@ function Enemies() {
     const [display, setDisplay] = useState("block")
     const maxX = parent.innerWidth
     const maxY = parent.innerHeight
-    const [x, setX] = useState(Math.floor(Math.random() * maxX))
-    const [y, setY] = useState(Math.floor(Math.random() * maxY))
-
-    useEffect(() => {
+    const [x, setX] = useState(0)
+    const [y, setY] = useState(Math.floor(Math.random() *maxY))
+    useEffect(() => { 
         if (x < maxX) {
             setTimeout(() => {
                 setX(x + 2)
@@ -15,7 +14,7 @@ function Enemies() {
         if (y < maxY) {
 
             setTimeout(() => {
-                setY(y + 2  )
+                setY(y + 1)
             }, 50);
         }
         else if (x >= maxX || y >= maxY) {
@@ -38,5 +37,3 @@ function Enemies() {
 }
 
 export default Enemies
-// 516 744
-// 487 743

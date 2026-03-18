@@ -8,15 +8,15 @@ function GamePage() {
 
     useEffect(()=>{
         setTimeout(() => {
-            setCount([...count, <Enemies />])
-        }, 100);
+            setCount([...count, "newEnemy"])
+        }, 500);
     },[count])
 
     return (
         <div className='game-page'>
-            {count.map((item)=>{
-                    
-                    return(item)
+            {count.map((item, id)=>{
+                    return(
+                    <Enemies key={id}/>)
             })}
             
         </div>
