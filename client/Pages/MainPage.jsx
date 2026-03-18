@@ -1,11 +1,13 @@
-import React, { useContext, useState } from 'react'
+import  { useContext, useState } from 'react'
 import { ThemeContext } from '../context/ContextProvider'
+import {useNavigate} from 'react-router-dom'
 import '../style/MainPage.css'
 function MainPage() {
     const { enemyCount, setEnemyCount } = useContext(ThemeContext)
+    const navigate = useNavigate()
     const [classBtn, setClassBtn] = useState("allow")
     function decrease() {
-        if (enemyCount > 0) {
+        if (enemyCount > 1) {
             setEnemyCount(enemyCount - 1)
         }
         else {
@@ -29,7 +31,7 @@ function MainPage() {
                     </path>
                 </svg></button>
             </div>
-            <button className='start-game'>START GAME</button>
+            <button className='start-game' onClick={()=>navigate('/game')}>START GAME</button>
         </div>
     )
 }
