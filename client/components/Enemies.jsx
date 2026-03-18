@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 function Enemies() {
     const [display, setDisplay] = useState("block")
-    const maxX = window.innerWidth
-    const maxY = window.innerHeight
+    const maxX = parent.innerWidth
+    const maxY = parent.innerHeight
     const [x, setX] = useState(Math.floor(Math.random() * maxX))
     const [y, setY] = useState(Math.floor(Math.random() * maxY))
+
     useEffect(() => {
         if (x < maxX) {
             setTimeout(() => {
@@ -20,7 +21,7 @@ function Enemies() {
         else if (x >= maxX || y >= maxY) {
             setDisplay("none")
         }
-
+        
     }, [x, y])
     return (
         <div className='circle' style={{
@@ -29,7 +30,7 @@ function Enemies() {
             height: "20px",
             borderRadius: "50%",
             transform: `translate(${x}px,${y}px)`,
-            display: `${display}`
+            display: display
         }} onClick={()=>setDisplay("none")}>
 
         </div>
